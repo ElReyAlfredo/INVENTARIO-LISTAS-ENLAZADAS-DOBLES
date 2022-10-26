@@ -4,8 +4,8 @@ export default class Producto {
     this.codigo = codigo;
     this.cantidad = cantidad;
     this.costo = costo;
-    this.siguiente = null;
-    this.anterior = null;
+    this.sig = null;
+    this.ant = null;
   }
 
   info() {
