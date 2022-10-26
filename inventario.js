@@ -1,7 +1,7 @@
-class Node {
-  constructor(number, text) {
-    this.number = number;
-    this.text = text;
-    this.next = null;
+import Producto from "./producto.js";
+
+class Inventario {
+  constructor() {
+    this.primero = null;
   }
 }
