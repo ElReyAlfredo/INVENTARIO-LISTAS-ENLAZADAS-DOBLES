@@ -1,16 +1,4 @@
-import Producto from "./producto.js";
-import Inventario from "./inventario.js";
-
 const inventario = new Inventario();
-
-const btnBuscar = document.getElementById("btnBuscar");
-btnBuscar.addEventListener("click", () => {
-  console.log("Buscar");
-  const codigo = document.getElementById("txtCodigo").value;
-  console.log(codigo);
-  const producto = inventario.buscar(codigo);
-  return `${producto.infoHTML()}`;
-});
 
 const btnAgregar = document.getElementById("btnAgregar");
 btnAgregar.addEventListener("click", () => {
@@ -25,6 +13,26 @@ btnAgregar.addEventListener("click", () => {
     ).innerHTML = `<h3>SE HA AGREGADO UN PRODUCTO</h3>`;
 });
 
+const eliminar = document.getElementById("btnEliminar");
+eliminar.addEventListener("click", () => {
+  let codigo = document.getElementById("txtCodigo").value;
+
+  if (inventario.eliminar(codigo)) {
+    document.getElementById(
+      "listado"
+    ).innerHTML = `<h3>SE HA ELIMINADO UN PRODUCTO</h3>`;
+  }
+});
+
+const btnBuscar = document.getElementById("btnBuscar");
+btnBuscar.addEventListener("click", () => {
+  console.log("Buscar");
+  const codigo = document.getElementById("txtCodigo").value;
+  console.log(codigo);
+  const producto = inventario.buscar(codigo);
+  return `${producto.infoHTML()}`;
+});
+
 const btnListar = document.getElementById("btnListar");
 btnListar.addEventListener("click", () => {
   return (document.getElementById(
@@ -37,15 +45,4 @@ btnListarInverso.addEventListener("click", () => {
   return (document.getElementById(
     "listado"
   ).innerHTML = `${inventario.listadoInverso()}`);
-});
-
-const eliminar = document.getElementById("btnEliminar");
-eliminar.addEventListener("click", () => {
-  let codigo = document.getElementById("txtCodigo").value;
-
-  if (inventario.eliminar(codigo)) {
-    document.getElementById(
-      "listado"
-    ).innerHTML = `<h3>SE HA ELIMINADO UN PRODUCTO</h3>`;
-  }
 });
