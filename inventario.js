@@ -83,7 +83,7 @@ class Inventario {
     let res = "";
     let temp = this.primero;
     while (temp) {
-      res += `${temp.info()} <br>`;
+      res += `${temp.info()}. <br>`;
       temp = temp.sig;
     }
     return res;
