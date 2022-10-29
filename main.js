@@ -24,6 +24,11 @@ eliminar.addEventListener("click", () => {
   }
 });
 
+const btnListar = document.getElementById("btnListar");
+btnListar.addEventListener("click", () => {
+  document.getElementById("listado").innerHTML = `${inventario.listar()}`;
+});
+
 const btnBuscar = document.getElementById("btnBuscar");
 btnBuscar.addEventListener("click", () => {
   console.log("Buscar");
@@ -33,16 +38,9 @@ btnBuscar.addEventListener("click", () => {
   return `${producto.infoHTML()}`;
 });
 
-const btnListar = document.getElementById("btnListar");
-btnListar.addEventListener("click", () => {
-  return (document.getElementById(
-    "listado"
-  ).innerHTML = `${inventario.listado()}`);
-});
-
 const btnListarInverso = document.getElementById("btnListarInverso");
 btnListarInverso.addEventListener("click", () => {
   return (document.getElementById(
     "listado"
-  ).innerHTML = `${inventario.listadoInverso()}`);
+  ).innerHTML = `${inventario.listarInverso()}`);
 });
